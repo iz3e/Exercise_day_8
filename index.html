@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Tienda en linea</title>
+    <base href="https://cdn.rawgit.com/download/polymer-cdn/2.6.0/lib/">
+    <script src="webcomponentsjs/webcomponents-loader.js"></script>
+    <link rel="import" href="iron-ajax/iron-ajax.html">
+    <link rel="import" href="polymer/polymer-element.html">
+</head>
+
+<body>
+    <comp-padre>
+        <comp-padre>
+            <dom-module id="comp-padre">
+                <template>
+                    <style>
+                        :host {
+                            border: 1px solid orange;
+                            margin: 50px;
+                            padding: 100px;
+                            display: block;
+                        }
+                    </style>
+                    <h1>Polymer store</h1>
+                    <comp-cart></comp-cart>
+                    <comp-producto padre-data={{product}} pro-name={{name}} pro-pre={{price}} pro-uni={{units}}
+                        pro-img={{img}}></comp-producto>
+                </template>
+                <script>
+                    class CompPadre extends Polymer.Element {
+                        static get is() {
+                            return "comp-padre";
+                        }
+
+                        static get properties() {
+                            return {
+                                product: {
+                                    type: Array,
+                                    value: [
+                                        { name: 'Pineapples', price: 10.5, units: 10, img: "http://t0.gstatic.com/images?q=tbn:ANd9GcT834Odj3PRZe3R5k83S8qhQ7pBiDS-pW3thair_JTex0IeydSERQsQjRwAcEvD_wRf6yV7eOvNLMPpPgPXSHE" },
+                                        { name: 'Orange', price: 20.5, units: 19, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT143a_0pllSLjCekrtoeSAn3J3fMPcZd8LsaNMnnru1xwYrPS2" },
+                                        { name: 'Rasberries', price: 21.5, units: 30, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTednuOH8vHpdjIyqcJ1qDpBaTJ94mL89ykXnixMXRAii4ojGJh" }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                    customElements.define(CompPadre.is, CompPadre);
+                </script>
+            </dom-module>
+            <!--Componente hijo-->
+            <dom-module id="comp-cart">
+                <template>
+                    <style>
+                        :host>table {
+                            width: 250px;
+                            text-align: center;
+                        }
+                    </style>
+                    <h1>Cart</h1>
+                    <table border="0" cellpadding="0" cellspacing="0" ">
+                        <tr> <td style=" vertical-align:middle;">
+                        <p>Product</p>
+                        </td>
+                        <td style="vertical-align:middle;">
+                            <p>Price</p>
+                        </td>
+                        <td style="vertical-align:middle;">
+                            <p>Unit</p>
+                        </td>
+                        <td style="vertical-align:middle;">
+                            <p>Totals</p>
+                        </td>
+                        </tr>
+                    </table>
+                </template>
+                <script>
+                    class CompCart extends Polymer.Element {
+                        static get is() {
+                            return "comp-cart";
+                        }
+                        static get properties() {
+                            return {
+
+                            }
+                        }
+                    }
+                    customElements.define(CompCart.is, CompCart);
+                </script>
+            </dom-module>
+            <!--Componente hijo-->
+            <dom-module id="comp-producto">
+                <template>
+                    <style>
+                        :host>div {
+                            display: inline-block;
+                            width: 200px;
+                            height: 300px;
+                            border: black solid 1px;
+                            text-align: center;
+                        }
+                    </style>
+                    <h1>Products</h1>
+                    <template is="dom-repeat" items="{{padreData}}">
+                        <div>
+                            <h2>{{item.name}}</h2>
+
+                            <img style="vertical-align:baseline;width: 100px; height: 100px;" src={{item.img}}>
+
+                            <p>Price: {{item.price}}</p>
+                            <p>Units: {{item.units}}</p>
+                            <div>
+                                <button>+</button>
+                                <button>-</button>
+                            </div>
+                        </div>
+                    </template>
+
+                </template>
+                <script>
+                    class CompProducto extends Polymer.Element {
+                        static get is() {
+                            return "comp-producto";
+                        }
+                        static get properties() {
+                            return {
+                                padreData: {
+                                    type: Array
+                                },
+                                proName: {
+                                    type: String,
+                                    notify: true
+                                },
+                                proPre: {
+                                    type: String,
+                                    notify: true
+                                },
+                                proUni: {
+                                    type: String,
+                                    notify: true
+                                }, proImg: {
+                                    type: String,
+                                    notify: true
+                                }
+                            }
+                        }
+                        addItem(){
+
+                        }
+                        removeItem(){
+                            
+                        }
+                    }
+                    customElements.define(CompProducto.is, CompProducto);
+                </script>
+            </dom-module>
+</body>
+
+</html>
