@@ -1,9 +1,9 @@
 <html>
   <head>
-    <base href="https://cdn.rawgit.com/download/polymer-cdn/2.6.0/lib/">
+    <base href="https://cdn.rawgit.com/download/polymer-cdn/2.6.0/lib/" />
     <script src="webcomponentsjs/webcomponents-loader.js"></script>
-    <link rel="import" href="iron-ajax/iron-ajax.html">
-    <link rel="import" href="polymer/polymer-element.html">
+    <link rel="import" href="iron-ajax/iron-ajax.html" />
+    <link rel="import" href="polymer/polymer-element.html" />
     <title>Tienda en linea</title>
   </head>
 
@@ -11,231 +11,293 @@
     <comp-padre></comp-padre>
     <dom-module id="comp-padre">
       <template>
-	<style>
-		:host{
-		  display: block;
-		  width: 60%;
-		  margin: auto;
-          border: 1px solid orange;
-		}
-		
-	</style>
-	<h1>Polymer Store</h1>
-	<comp-cart total="{{total}}" pinas-ob="{{pinasOb}}" sub-pinas="{{subPinas}}" orange-ob="{{orangeOb}}" sub-orange="{{subOrange}}" ras-ob="{{rasOb}}" ras-sub="{{rasSub}}"></comp-cart>
-	<comp-producto total="{{total}}" pinas-ob="{{pinasOb}}" sub-pinas="{{subPinas}}" orange-ob="{{orangeOb}}" sub-orange="{{subOrange}}" ras-ob="{{rasOb}}" ras-sub="{{rasSub}}"></comp-producto>
+        <style>
+          :host {
+            display: block;
+            width: 60%;
+            margin: auto;
+            border: 1px solid orange;
+          }
+        </style>
+        <h1>Polymer Store</h1>
+        <comp-cart
+          total="{{total}}"
+          pinas-ob="{{pinasOb}}"
+          sub-pinas="{{subPinas}}"
+          orange-ob="{{orangeOb}}"
+          sub-orange="{{subOrange}}"
+          ras-ob="{{rasOb}}"
+          ras-sub="{{rasSub}}"
+        ></comp-cart>
+        <comp-producto
+          total="{{total}}"
+          pinas-ob="{{pinasOb}}"
+          sub-pinas="{{subPinas}}"
+          orange-ob="{{orangeOb}}"
+          sub-orange="{{subOrange}}"
+          ras-ob="{{rasOb}}"
+          ras-sub="{{rasSub}}"
+        ></comp-producto>
       </template>
       <script>
-	class CompPadre extends Polymer.Element{
-	  static get is(){ return "comp-padre" }
-	  static get properties(){
-	  	return{
-	  	  total: { type: Number},
-	  	  pinasOb: { type: Object },
-	      subPinas: { type: Number},
-	      orangeOb: { type: Object },
-	      subOrange: { type: Number},
-	      rasOb: { type: Object },
-	      rasSub: { type: Number}
-	 	}
-	  }
-	}
-	customElements.define(CompPadre.is, CompPadre);
+        class CompPadre extends Polymer.Element {
+          static get is() {
+            return "comp-padre";
+          }
+          static get properties() {
+            return {
+              total: { type: Number },
+              pinasOb: { type: Object },
+              subPinas: { type: Number },
+              orangeOb: { type: Object },
+              subOrange: { type: Number },
+              rasOb: { type: Object },
+              rasSub: { type: Number }
+            };
+          }
+        }
+        customElements.define(CompPadre.is, CompPadre);
       </script>
     </dom-module>
-
 
     <dom-module id="comp-cart">
       <template>
-	<style>
-	  :host{
-	  	display: block;
-	  	width: 90%;
-	  	margin: auto;
-	  }
-	  :host .cont{
-	  	display: inline-block;
-		width: 12%;
-		margin: 3px;
-		text-align: center;
-	  }
-	</style>
-	<h3>Cart</h3>
-	<div>
-	  <div><span class="cont">Product</span> <span class="cont">Price</span> <span class="cont">Units</span> <span class="cont">Subtotal</span> </div>
-	  <div><span class="cont">[[pinasOb.name]]</span> <span class="cont">[[pinasOb.price]]</span> <span class="cont">{{pinasOb.units}}</span> <span class="cont">[[subPinas]]</span> </div>
-	  <div><span class="cont">[[orangeOb.name]]</span> <span class="cont">[[orangeOb.price]]</span> <span class="cont">{{orangeOb.units}}</span> <span class="cont">[[subOrange]]</span> </div>
-	  <div><span class="cont">[[rasOb.name]]</span> <span class="cont">[[rasOb.price]]</span> <span class="cont">{{rasOb.units}}</span> <span class="cont">[[rasSub]]</span> </div>
-	  <div><span class="cont">Total</span> <span class="cont"></span> <span class="cont"></span> <span class="cont">[[total]]</span></div>
-	</div>
+        <style>
+          :host {
+            display: block;
+            width: 90%;
+            margin: auto;
+          }
+          :host .cont {
+            display: inline-block;
+            width: 12%;
+            margin: 3px;
+            text-align: center;
+          }
+        </style>
+        <h3>Cart</h3>
+        <div>
+          <div>
+            <span class="cont">Product</span> <span class="cont">Price</span>
+            <span class="cont">Units</span> <span class="cont">Subtotal</span>
+          </div>
+          <div>
+            <span class="cont">[[pinasOb.name]]</span>
+            <span class="cont">[[pinasOb.price]]</span>
+            <span class="cont">{{pinasOb.units}}</span>
+            <span class="cont">[[subPinas]]</span>
+          </div>
+          <div>
+            <span class="cont">[[orangeOb.name]]</span>
+            <span class="cont">[[orangeOb.price]]</span>
+            <span class="cont">{{orangeOb.units}}</span>
+            <span class="cont">[[subOrange]]</span>
+          </div>
+          <div>
+            <span class="cont">[[rasOb.name]]</span>
+            <span class="cont">[[rasOb.price]]</span>
+            <span class="cont">{{rasOb.units}}</span>
+            <span class="cont">[[rasSub]]</span>
+          </div>
+          <div>
+            <span class="cont">Total</span> <span class="cont"></span>
+            <span class="cont"></span> <span class="cont">[[total]]</span>
+          </div>
+        </div>
       </template>
       <script>
-	class ComponentCart extends Polymer.Element{
-	  static get is() { return "comp-cart" }
-	  static get properties(){
-	    return {
-	      pinasOb: { type: Object, value: {name: 'Pineaples', price: 10.5, units: 0}, notify: true },
-	      subPinas: { type: Number, value: 0, notify: true },
-	      orangeOb: { type: Object, value: {name: 'Oranges', price: 20.5, units: 0}, notify: true },
-	      subOrange: { type: Number, value: 0, notify: true },
-	      rasOb: { type: Object, value: {name: 'Raspberries', price: 21.5, units: 0}, notify: true },
-	      rasSub: { type: Number, value: 0, notify: true },
-	      total: { type: Number, value: 0, notify: true}
-	    }
-	  }
-	}
-	customElements.define(ComponentCart.is, ComponentCart);
+        class ComponentCart extends Polymer.Element {
+          static get is() {
+            return "comp-cart";
+          }
+          static get properties() {
+            return {
+              pinasOb: {
+                type: Object,
+                value: { name: "Pineaples", price: 10.5, units: 0 },
+                notify: true
+              },
+              subPinas: { type: Number, value: 0, notify: true },
+              orangeOb: {
+                type: Object,
+                value: { name: "Oranges", price: 20.5, units: 0 },
+                notify: true
+              },
+              subOrange: { type: Number, value: 0, notify: true },
+              rasOb: {
+                type: Object,
+                value: { name: "Raspberries", price: 21.5, units: 0 },
+                notify: true
+              },
+              rasSub: { type: Number, value: 0, notify: true },
+              total: { type: Number, value: 0, notify: true }
+            };
+          }
+        }
+        customElements.define(ComponentCart.is, ComponentCart);
       </script>
     </dom-module>
 
-
     <dom-module id="comp-producto">
       <template>
-	<style>
-	  :host{
-	  	display: block;
-	  	width: 90%;
-	  	margin: auto;
-	  	padding: 10px;
-	  }
-	  :host .caja1{
-	  	display: inline-block;
-	  	width: 30%;
-        height: 300px;
-	  	text-align: center;
-	  	border: 1px solid black;
-	  	margin: 4px;
-	  }
-	  :host .caja3{
-	  	display: inline-block;
-	  	width: 30%;
-          height: 300px;
-	  	text-align: center;
-	  	border: 1px solid black;
-	  	margin: 4px;
-	  }
-	  :host .caja2{
-	  	display: inline-block;
-	  	width: 30%;
-          height: 300px;
-	  	text-align: center;
-	  	border: 1px solid black;
-	  	margin: 4px;
-	  }
-	</style>
-	<h3>Products</h3>
-	<div>
-	  <div class="caja1">
-	    <h4>Pineaples</h4>
-	    <p>Price: 10.5</p>
-	    <img style="width: 100px;height: 100px;" src="http://t0.gstatic.com/images?q=tbn:ANd9GcT834Odj3PRZe3R5k83S8qhQ7pBiDS-pW3thair_JTex0IeydSERQsQjRwAcEvD_wRf6yV7eOvNLMPpPgPXSHE" >
-	    <p>Units: [[indexAp]]</p>
-	    <button on-click="moreAp"> + </button> <button on-click="lessAp"> - </button>
-	  </div>
-	  <div class="caja2">
-	  	<h4>Oranges</h4>
-	    <p>Price: 20.5</p>
-	    <img style="width: 100px;height: 100px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT143a_0pllSLjCekrtoeSAn3J3fMPcZd8LsaNMnnru1xwYrPS2">
-	    <p>Units: [[indexOr]]</p>
-	    <button on-click="moreOr"> + </button> <button on-click="lessOr"> - </button>
-	  </div>
-	  <div class="caja3">
-	  	<h4>Raspberries</h4>
-	    <p>Price: 21.5</p>
-	    <img style="width: 100px;height: 100px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTednuOH8vHpdjIyqcJ1qDpBaTJ94mL89ykXnixMXRAii4ojGJh">
-	    <p>Units: [[indexRa]]</p>
-	    <button on-click="moreRa"> + </button> <button on-click="lessRa"> - </button>
-	  </div>
-	</div>
+        <style>
+          :host {
+            display: block;
+            width: 90%;
+            margin: auto;
+            padding: 10px;
+          }
+          :host .caja1 {
+            display: inline-block;
+            width: 30%;
+            height: 300px;
+            text-align: center;
+            border: 1px solid black;
+            margin: 4px;
+          }
+          :host .caja3 {
+            display: inline-block;
+            width: 30%;
+            height: 300px;
+            text-align: center;
+            border: 1px solid black;
+            margin: 4px;
+          }
+          :host .caja2 {
+            display: inline-block;
+            width: 30%;
+            height: 300px;
+            text-align: center;
+            border: 1px solid black;
+            margin: 4px;
+          }
+        </style>
+        <h3>Products</h3>
+        <div>
+          <div class="caja1">
+            <h4>Pineaples</h4>
+            <p>Price: 10.5</p>
+            <img
+              style="width: 100px;height: 100px;"
+              src="http://t0.gstatic.com/images?q=tbn:ANd9GcT834Odj3PRZe3R5k83S8qhQ7pBiDS-pW3thair_JTex0IeydSERQsQjRwAcEvD_wRf6yV7eOvNLMPpPgPXSHE"
+            />
+            <p>Units: [[indexAp]]</p>
+            <button on-click="moreAp">+</button>
+            <button on-click="lessAp">-</button>
+          </div>
+          <div class="caja2">
+            <h4>Oranges</h4>
+            <p>Price: 20.5</p>
+            <img
+              style="width: 100px;height: 100px;"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT143a_0pllSLjCekrtoeSAn3J3fMPcZd8LsaNMnnru1xwYrPS2"
+            />
+            <p>Units: [[indexOr]]</p>
+            <button on-click="moreOr">+</button>
+            <button on-click="lessOr">-</button>
+          </div>
+          <div class="caja3">
+            <h4>Raspberries</h4>
+            <p>Price: 21.5</p>
+            <img
+              style="width: 100px;height: 100px;"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTednuOH8vHpdjIyqcJ1qDpBaTJ94mL89ykXnixMXRAii4ojGJh"
+            />
+            <p>Units: [[indexRa]]</p>
+            <button on-click="moreRa">+</button>
+            <button on-click="lessRa">-</button>
+          </div>
+        </div>
       </template>
       <script>
-	class ComponentProducts extends Polymer.Element{
-	  static get is() { return "comp-producto" }
-	  static get observers(){
-	    return [
-	      'cambiarTotal(subPinas, subOrange, rasSub)'
-	    ]
-	  }
-	  static get properties(){
-	    return {
-	      total: { type: Number, notify: true},
-	      pinasOb: { type: Object, notify: true},
-	      indexAp: { type: Number, value: 10},
-	      subPinas: { type: Number,  notify: true},
-	      orangeOb: { type: Object, notify: true},
-	      indexOr: { type: Number, value: 19},
-	      subOrange: { type: Number,  notify: true},
-	      rasOb: { type: Object, notify: true},
-	      indexRa: { type: Number, value: 30},
-	      rasSub: { type: Number,  notify: true}
-	    }
-	  }
-	  // observer para cambiar los valores de total
-	  cambiarTotal(a, b, c){
-	  	let suma = a+b+c;
-	  	this.set('total', suma);
-	  }
-	  // Métodos para los botones dePineaples
-	  moreAp(e){
-	  	if(this.indexAp > 0){
- 	  	  this.indexAp = this.indexAp - 1;
- 	  	  let unit = this.pinasOb.units + 1;
- 	  	  this.set('pinasOb.units', unit);
- 	  	  let acum = this.subPinas + this.pinasOb.price;
- 	  	  this.set('subPinas', acum);
- 	  	  console.log(this.total)
-	  	}
-	  }
-	  lessAp(e){
-	  	if(this.indexAp <10){
-	  	  this.indexAp = this.indexAp + 1;
-	  	  let unit = this.pinasOb.units - 1;
-	  	  this.set('pinasOb.units', unit);
-	  	  let acum = this.subPinas - this.pinasOb.price;
-	  	  this.set('subPinas', acum);
-	  	 }
-	  }
-	  // Métodos para los botones de Oranges
-	  moreOr(e){
-	  	if(this.indexOr > 0){
- 	  	  this.indexOr = this.indexOr - 1;
- 	  	  let unit = this.orangeOb.units + 1;
- 	  	  this.set('orangeOb.units', unit);
- 	  	  let acum = this.subOrange + this.orangeOb.price;
- 	  	  this.set('subOrange', acum);
- 	  	  console.log()
-	  	}
-	  }
-	  	lessOr(e){
-	  	  if(this.indexOr <19){
-	  	  	this.indexOr = this.indexOr + 1;
-	  	  	let unit = this.orangeOb.units - 1;
-	  	  	this.set('orangeOb.units', unit);
-	  	  	let acum = this.subOrange - this.orangeOb.price;
-	  	  	this.set('subOrange', acum);
-	  	  }
-	  	}
-	  	// Métodos para los botones de Raspberries
-	  	moreRa(e){
-	  	if(this.indexRa > 0){
- 	  	  this.indexRa = this.indexRa - 1;
- 	  	  let unit = this.rasOb.units + 1;
- 	  	  this.set('rasOb.units', unit);
- 	  	  let acum = this.rasSub + this.rasOb.price;
- 	  	  this.set('rasSub', acum);
- 	  	  console.log()
-	  	}
-	  }
-	  	lessRa(e){
-	  	  if(this.indexRa <30){
-	  	  	this.indexRa = this.indexRa + 1;
-	  	  	let unit = this.rasOb.units - 1;
-	  	  	this.set('rasOb.units', unit);
-	  	  	let acum = this.rasSub - this.rasOb.price;
-	  	  	this.set('rasSub', acum);
-	  	  }
-	  	}
-	}
-	customElements.define(ComponentProducts.is, ComponentProducts);
+        class ComponentProducts extends Polymer.Element {
+          static get is() {
+            return "comp-producto";
+          }
+          static get observers() {
+            return ["cambiarTotal(subPinas, subOrange, rasSub)"];
+          }
+          static get properties() {
+            return {
+              total: { type: Number, notify: true },
+              pinasOb: { type: Object, notify: true },
+              indexAp: { type: Number, value: 10 },
+              subPinas: { type: Number, notify: true },
+              orangeOb: { type: Object, notify: true },
+              indexOr: { type: Number, value: 19 },
+              subOrange: { type: Number, notify: true },
+              rasOb: { type: Object, notify: true },
+              indexRa: { type: Number, value: 30 },
+              rasSub: { type: Number, notify: true }
+            };
+          }
+          // observer para cambiar los valores de total
+          cambiarTotal(a, b, c) {
+            let suma = a + b + c;
+            this.set("total", suma);
+          }
+          // Métodos para los botones dePineaples
+          moreAp(e) {
+            if (this.indexAp > 0) {
+              this.indexAp = this.indexAp - 1;
+              let unit = this.pinasOb.units + 1;
+              this.set("pinasOb.units", unit);
+              let acum = this.subPinas + this.pinasOb.price;
+              this.set("subPinas", acum);
+              console.log(this.total);
+            }
+          }
+          lessAp(e) {
+            if (this.indexAp < 10) {
+              this.indexAp = this.indexAp + 1;
+              let unit = this.pinasOb.units - 1;
+              this.set("pinasOb.units", unit);
+              let acum = this.subPinas - this.pinasOb.price;
+              this.set("subPinas", acum);
+            }
+          }
+          // Métodos para los botones de Oranges
+          moreOr(e) {
+            if (this.indexOr > 0) {
+              this.indexOr = this.indexOr - 1;
+              let unit = this.orangeOb.units + 1;
+              this.set("orangeOb.units", unit);
+              let acum = this.subOrange + this.orangeOb.price;
+              this.set("subOrange", acum);
+              console.log();
+            }
+          }
+          lessOr(e) {
+            if (this.indexOr < 19) {
+              this.indexOr = this.indexOr + 1;
+              let unit = this.orangeOb.units - 1;
+              this.set("orangeOb.units", unit);
+              let acum = this.subOrange - this.orangeOb.price;
+              this.set("subOrange", acum);
+            }
+          }
+          // Métodos para los botones de Raspberries
+          moreRa(e) {
+            if (this.indexRa > 0) {
+              this.indexRa = this.indexRa - 1;
+              let unit = this.rasOb.units + 1;
+              this.set("rasOb.units", unit);
+              let acum = this.rasSub + this.rasOb.price;
+              this.set("rasSub", acum);
+              console.log();
+            }
+          }
+          lessRa(e) {
+            if (this.indexRa < 30) {
+              this.indexRa = this.indexRa + 1;
+              let unit = this.rasOb.units - 1;
+              this.set("rasOb.units", unit);
+              let acum = this.rasSub - this.rasOb.price;
+              this.set("rasSub", acum);
+            }
+          }
+        }
+        customElements.define(ComponentProducts.is, ComponentProducts);
       </script>
     </dom-module>
   </body>
